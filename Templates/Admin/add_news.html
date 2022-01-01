@@ -225,15 +225,10 @@ a{
         </form>
         </div>
 </div>
-    
+
 <script>
-    function submitted() {
-        i=0;
-        while (i>=0) {
-            print("Running....")
-            i++;
-        }
-    }
-    submitted();
+    setInterval(() => {
+        console.log("Running");
+    }, 1000);
 </script>
 {% endblock body %}
