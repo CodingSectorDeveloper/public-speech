@@ -131,4 +131,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 209715200
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
