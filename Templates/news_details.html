@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+
+<style>
+    .row{
+        display: flex;
+        margin-top: 40px;
+        align-items: flex-start;
+    }
+    .main-container{
+        margin-left: 40px;
+        width: 50vw;
+    }
+    .news_video{
+        width: 50vw;
+        object-fit: contain;
+        height: 70vh;
+    }
+    .news_title{
+        margin: 15px 0px;
+        font-family: 'Poppins', sans-serif;
+    }
+    .news_time{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .news_details{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        margin: 20px 0px;
+        font-size: 18px;
+    }
+    .title{
+        margin: 30px 40px;
+        position: relative;
+        font-size: 25px;
+        transform: translate(-50% -50%);
+        color: black;
+        padding-bottom: 3px;
+        border-bottom: 2px solid black;
+        width: max-content;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+    }
+    .news_item{
+        margin: 20px 40px;
+        margin-right: 0px;
+        display: flex;
+        width: 40vw;
+        height: 30vh;   
+        align-items: flex-start;
+    }
+    .news_item .news_text{
+        width: 20vw;
+        font-size: 18px;
+        margin-left: 15px;
+        font-family: 'Poppins', sans-serif;
+    }
+    .news_item .news_image{
+        width: 20vw !important;
+        height: 100%;
+    }
+    .news_item .news_image img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .news_item .news_text p:nth-child(1){
+        transition: 0.4s;
+    }
+    .news_item:hover > .news_text p:nth-child(1){
+        color: red;
+    }
+    @media (max-width: 700px){
+        .row{
+            flex-direction: column;
+        }
+        .main-container{
+            width: 90vw;
+            margin-left: 20px;
+        }
+        .news_title{
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .news_time{
+            font-size: 16px;
+        }
+        .news_details{
+            font-size: 16px;
+            text-align: justify;
+            margin-top: 8px;
+        }
+        .news_video{
+            width: 100%;
+            height: 100%;
+        }
+        .news_item{
+            width: 90vw;
+            margin-left: 20px;
+        }
+        .news_item .news_text{
+            width: 100%;
+        }
+        .news_item .news_image{
+            width: 90vw !important;
+        }
+        .news_item .news_text p:nth-child(1){
+            font-size: 14px;
+        }
+        .news_item .news_text p:nth-child(2){
+            font-size: 14px;
+        }
+        .title{
+            margin-left: 20px;
+        }
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="main-container">
+            <video src="{{news.video.url}}" class="news_video" controls autoplay controlsList="nodownload"></video>
+            <h2 class="news_title">{{news.title}}</h2>
+            <p class="news_time">Uploaded On {{news.uploaded_on}}</p>
+            <p class="news_details">{{news.description | safe }}</p>
+        </div>
+        <div class="more-news">
+            <h1 class="title">More News</h1>
+            {% for news in more_news %}
+                <div class="news_item" onclick="window.location.href='/news_details/{{news.id}}'">
+                    <div class="news_image">
+                        <img src="{{news.thumbnail.url}}" alt="">
+                    </div>
+                    <div class="news_text">
+                        <p>{{news.title}}</p>
+                        <p style="margin-top: 10px; font-weight: 300;">{{news.uploaded_on}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+
+{% endblock %}

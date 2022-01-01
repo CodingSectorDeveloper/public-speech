@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(228, 229, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .card {
+    font-family: sans-serif;
+    width: 30vw;
+    border-radius: 10px;
+    background-color: #ffff;
+    padding: 1.8rem;
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    font-size: 30px;
+  }
+  .subtitle {
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 0px;
+  }
+  .btn-text {
+    margin: 0;
+  }
+  
+  .or {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(245 239 239);
+    line-height: 0.1em;
+    margin: 25px 0;
+  }
+  .or span {
+    background: #fff;
+    padding: 0 10px;
+  }
+  
+  .email-login {
+    display: flex;
+    flex-direction: column;
+  }
+  .email-login label {
+    color: rgb(170 166 166);
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 15px 20px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  ::placeholder{
+      font-size: 15px;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus{
+      outline:none;
+  }
+  
+  .cta-btn {
+    background-color: rgb(69, 69, 185);
+    color: white;
+    padding: 15px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+      font-size: 18px;
+      width: 100%;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  .forget-pass {
+    text-align: center;
+    display: block;
+  }
+  .error{
+    color: white;
+    background-color: rgb(255, 55, 55);
+    padding: 5px 0px;
+    text-align: center;
+    margin-bottom: 20px;
+  }

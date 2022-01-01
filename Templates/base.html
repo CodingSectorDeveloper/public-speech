@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Speech - Latest News Anywhere Anytime</title>
+    {% block head %}
+    {% endblock head %}
+    <link rel="stylesheet" href="./media.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+
+:root{
+    --main-black: rgb(32,32,32);
+    --main-yellow: rgb(255, 157, 0);
+    --main-red: #ff0000;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.topbar{
+    display: flex;
+    background-color: var(--main-black);
+    padding: 13px;
+    justify-content: space-between;
+    align-items: center;
+}
+.topbar ul{
+    display: flex;
+}
+.topbar ul li{
+    list-style: none;
+}
+.topbar ul li a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px 10px;
+    font-size: 15px;
+    transition: 0.4s;
+}
+.topbar ul li a:hover{
+    color: var(--main-yellow);
+}
+.navbar{
+    display: flex;
+    box-shadow: 0 0 5px 0 rgb(0,0,0,0.3);
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.navbar ul li a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 10px 15px;
+    border: transparent 2px solid;
+    transition: 0.6s;
+    font-family: 'Lato', serif;
+}
+.navbar ul li a:hover{
+    color: var(--main-red);
+    border-color: #ff3232;
+}
+.navbar .logo .logo-text{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing:-0.5px;
+    font-weight: 500;
+}
+.footer{
+    background-color: var(--main-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 20px;
+}
+.footer .options{
+    display: flex;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.footer .options p{
+    margin: 0px 10px;
+}
+.footer h1{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+.controls{
+    font-size: 20px;
+    display: none !important;
+    color: black;
+}
+@media(max-width: 700px){
+    .navbar{
+        flex-direction: column;
+        justify-content: left !important;
+        align-items: flex-start !important;
+    }
+    .logo{
+        display: flex;
+        width: 100%;
+        align-items: center !important;
+        justify-content: space-between;
+    }
+    .navbar .nav-links{
+        align-items: start;
+        padding: 0px !important;
+        flex-direction: column;
+        display: none;
+        animation: 0.6s downto linear;
+    }
+    .navbar .nav-links.active{
+        display: block;
+    }
+    .navbar .nav-links li{
+        margin: 8px 0px;
+        margin-left: 0px !important;
+    }
+    .nav-links li a{
+        padding: 0px !important;
+        margin-top: 20px;
+    }
+    .nav-links li a:hover{
+        border-color: transparent !important;
+    }
+    .nav-links li:nth-child(1){
+        margin-top: 30px;
+    }
+    .logo-text{
+        font-size: 20px;
+    }
+    .open{
+        display: block !important;
+    }
+    .open.hide{
+        display: none !important;
+    }
+    .close.hide{
+        display: none !important;
+    }
+    .close.show{
+        display: block !important;
+    }
+}
+    </style>
+    <link rel="shortcut icon" href="{% static 'LOGO_.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="topbar">
+        <ul class="top-links">
+            <li><a href="https://www.facebook.com/PublicSpeechNews"><i style="font-size: 17px;" class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i style="font-size: 17px;" class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i style="font-size: 17px;" class="fab fa-twitter"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="navbar">
+        <div class="logo">
+            <h1 class="logo-text">
+                <span style="color: red;">Public</span> Speech
+            </h1>
+            <i class="fas fa-bars open controls"></i>
+            <i class="fas fa-times close controls"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% if request.user.is_authenticated and request.user.is_superuser %}
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    {% block body %}
+
+    {% endblock body %}
+
+    <div class="footer">    
+        <h1>@2021 <u>Public Speech</u>. All Rights Reserves</h1>
+    </div>
+
+    <script>
+        var open = document.querySelector(".open");
+        var links = document.querySelector(".nav-links");
+        var close = document.querySelector('.close');
+        close.classList.add("hide");
+        open.onclick = () => {
+            open.classList.add("hide");
+            close.classList.add("show");
+            links.classList.add("active");
+        }
+        close.onclick = () => {
+            open.classList.remove("hide");
+            close.classList.remove("show");
+            links.classList.remove("active");
+        }
+    </script>
+
+</body>
+</html>

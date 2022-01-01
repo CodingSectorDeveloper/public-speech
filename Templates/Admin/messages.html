@@ -1,0 +1,44 @@
+{% extends "admin_base.html" %}
+
+{% block title %} Messages {% endblock %}
+
+{% block head %}
+
+    <style>
+        .space-between{
+            margin: 15px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plus-icon{
+            font-size: 20px;
+            color: white;
+            background-color: rgb(79,68,224);
+            padding: 10px;
+            border-radius: 100px;
+        }
+        .container-div{
+            border: 1px solid rgba(0,0,0,0.600);
+            box-shadow: none;
+        }
+    </style>
+
+{% endblock head %}
+
+{% block body %}
+<div class="main__container">
+    <div class="space-between">
+        <h1>Messages</h1>
+    </div>
+    <div class="container-div" style="margin-top: 20px;">
+        {% for i in messages %}
+        <div class="space-between" onclick="window.location.href='/admin_dashboard/message_details/{{i.id}}'">
+            <p>{{forloop.counter}}. <b>{{i.full_name}}</b> - {{i.email}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock body %}

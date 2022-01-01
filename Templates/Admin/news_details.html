@@ -1,0 +1,49 @@
+{% extends "admin_base.html" %}
+
+{% block title %} News Details {% endblock %}
+
+{% block head %}
+
+    <style>
+        .space-between{
+            display: flex;
+            align-items: center;
+            margin: 13px 0px;
+            font-size: 18px;
+            justify-content: space-between;
+        }
+        .plus-icon{
+            font-size: 20px;
+            color: white;
+            background-color: rgb(79,68,224);
+            padding: 10px;
+            border-radius: 100px;
+        }
+    </style>
+
+{% endblock head %}
+
+{% block body %}
+<div class="main__container">
+<h1>News Details</h1>
+<hr style="margin: 20px 0px;">
+<div class="space-between">
+    <p>Title</p>
+    <p>{{news.title}}</p>
+</div>
+<div class="space-between">
+    <p>Thumbnail</p>
+    <p><a href="{{news.thumbnail.url}}">{{news.thumbnail.url}}</a></p>
+</div>
+<div class="space-between">
+    <p>Video</p>
+    <p><a href="{{news.video.url}}">{{news.video.url}}</a></p>
+</div>
+<div class="">
+    <p>Description</p><br>
+    <p>{{enrollment.description}}</p>
+</div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock body %}

@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+
+:root{
+    --main-black: rgb(32,32,32);
+    --main-yellow: rgb(255, 157, 0);
+    --main-red: #ff0000;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.topbar{
+    display: flex;
+    background-color: var(--main-black);
+    padding: 13px;
+    justify-content: space-between;
+    align-items: center;
+}
+.topbar ul{
+    display: flex;
+}
+.topbar ul li{
+    list-style: none;
+}
+.topbar ul li a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px 10px;
+    font-size: 15px;
+    transition: 0.4s;
+}
+.topbar ul li a:hover{
+    color: var(--main-yellow);
+}
+.navbar{
+    display: flex;
+    box-shadow: 0 0 5px 0 rgb(0,0,0,0.3);
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.navbar ul li a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 10px 15px;
+    border: transparent 2px solid;
+    transition: 0.6s;
+    font-family: 'Lato', serif;
+}
+.navbar ul li a:hover{
+    color: var(--main-red);
+    border-color: #ff3232;
+}
+.navbar .logo .logo-text{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing:-0.5px;
+    font-weight: 500;
+}
+.d {
+	float: left;
+	overflow: hidden;
+}
+.d .d-btn {
+	font-size: 16px;
+	border: none;
+	outline: none;
+	background: inherit;
+	text-transform: uppercase;
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.d-content {
+    display: none;
+    padding-top: 50px;
+    position: absolute;
+	background: #f9f9f9;
+	width: 100%;
+	left: 0;
+    transition: 0.6s;
+    padding-bottom: 50px;
+    z-index: 10;
+}
+.d:hover .d-content {
+    display: block;
+}
+.row{
+    display: flex;
+    animation: linear 0.6s fade;
+    transition: ease-in-out;
+    justify-content: space-evenly;
+}
+.column{
+    margin: 0px 30px;
+    width: 25vw !important;
+}
+.column .img-div{
+    width: 25vw !important;
+    position: relative;
+}
+.column .img-div img{
+    width: 25vw;
+    display: block;
+}
+.column .news-title{
+    font-family: 'Mate SC', serif;
+    font-weight: 300;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: 0.6s;
+}
+.row .column .news-details{
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: 0.6s;
+    font-weight: 400;
+}
+.row .column:hover .news-details{
+    color: var(--main-red);
+}
+.row .column:hover .news-title{
+    color: var(--main-red);
+}
+.row .column .img-div p{
+    font-family: 'Poppins', sans-serif;
+    background-color: #4d4d8b;
+    border-radius: 5px;
+    font-weight: 300;
+    padding: 5px 10px;
+    font-size: 12px;
+    width: max-content;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.title{
+    margin: 30px;
+    position: relative;
+    font-size: 25px;
+    transform: translate(-50% -50%);
+    color: black;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.indian-news{
+    display: flex;
+}
+.indian-news .main-news{
+    position: relative;
+    width: max-content;
+    width: 40%;
+    height: max-content;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+.indian-news .main-news img{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+}
+.main-news::after {
+    content:'';
+    position:absolute;
+    left:0; 
+    transition: 0.6s;
+    top:0px;
+    width:100%;
+    height:100%;
+    background: linear-gradient(rgba(0,0,0,0.300) , rgba(0,0,0,0.300));
+    display:inline-block;
+}
+.indian-news .main-news p{
+    position: absolute;
+    bottom: 20px;
+    z-index: 999999;
+    left: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+.indian-news .main-news .icons{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: rgb(255, 255, 255);
+    z-index: 100000;
+    margin-right: 10px;
+    display: none;
+    font-size: 20px;
+    animation: fade linear 0.6s;
+}
+.indian-news .main-news .icons i{
+    margin: 10px 5px;
+    transition: 0.6s;
+}
+.indian-news .main-news .icons i:hover{
+    color: rgb(255, 219, 119);
+    cursor: pointer;
+}
+.indian-news .main-news:hover > .icons{
+    display: block;
+}
+.indian-news .main-news:hover > p{
+    color: rgb(255, 219, 119);
+    transition: 0.6s;
+}
+.indian-news .collection .collection-item{
+    position: relative;
+    height: 100px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    width: 15vw;
+    transition: 0.6s;
+    border-bottom: 1px solid black;
+}
+.indian-news .collection .collection-item h1{
+    font-size: 13px;
+    transition: 0.6s;
+    font-family: 'Poppins', sans-serif;
+}
+.indian-news .collection .collection-item .icons{
+    padding-bottom: 10px;
+    position: absolute;
+    display: flex;
+    bottom: 0px;
+    right: 0px;
+}
+.indian-news .collection .collection-item .icons i{
+    display: none;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.indian-news .collection {
+    margin: 0px 30px;
+}
+.indian-news .collection .collection-item:hover{
+    border-bottom: 1px var(--main-red) solid;
+}
+.indian-news .collection .collection-item:hover > h1{
+    color: var(--main-red);
+}
+.indian-news .collection .collection-item:hover > .icons i{
+    animation: fade linear 0.6s;
+    color: var(--main-red);
+    display: block;
+}
+.sidebar{
+    width: 17%;
+    position: relative;
+    background-color: #ddddff;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid  #c1c1fa;
+}
+.sidebar .title h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin: 10px 0px;
+}
+.sidebar .title p{
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.sidebar button{
+    background: rgb(255, 70, 70);
+    width: 80%;
+    position: absolute;
+    border: none;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    padding: 15px 0px;
+
+}
+.sidebar button a{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+.sidebar .features{
+    list-style: none;
+    margin: 0px 20px;
+}
+.sidebar .features li{
+    margin: 20px 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: bolder;
+}
+.sidebar .features li i{
+    margin-right: 5px;
+}
+/* .indian-news .grid{
+    width: 20%;
+}
+.indian-news .grid .grid-item img{
+    width: 75%;
+    border-radius: 10px;
+}
+.indian-news .grid .grid-item p{
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.6s;
+}
+.indian-news .grid .grid-item:nth-child(2){
+    margin-top: 15px;
+}
+.indian-news .grid .grid-item:hover p{
+    color: var(--main-red);
+}
+.carousel-layout .grid{
+    width: 20%;
+}
+.carousel-layout .grid .grid-item img{
+    width: 75%;
+    border-radius: 10px;
+}
+.carousel-layout .grid .grid-item p{
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.6s;
+}
+.carousel-layout .grid .grid-item:nth-child(2){
+    margin-top: 15px;
+}
+.carousel-layout .grid .grid-item:hover p{
+    color: var(--main-red);
+}
+.carousel-layout{
+    margin: 30px;
+    display: flex;
+}
+.carousel-layout .slider{
+    position: relative;
+}
+.carousel-layout .slider .slider-items{
+    display: flex;
+}
+.carousel-layout .slider .slider-items .item{
+    display: none;
+    animation: appear linear 0.6s;
+}
+.carousel-layout .slider .slider-items .item.active{
+    display: block;
+}
+.carousel-layout .slider .slider-items .item img{
+    border-radius: 20px;
+}
+.carousel-layout .slider .controls{
+    position: absolute;
+    top: 45%;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    color: rgb(31, 148, 2);
+    transition: 0.6s;
+    background: white;
+    font-size: 15px;
+}
+.prev-btn{
+    left: 20px;
+}
+.next-btn{
+    right: 20px;
+}
+@keyframes appear{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.carousel-layout .grid2 .grid-item2 p{
+    font-weight: bolder;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+.carousel-layout .grid2{
+    margin-left: 30px;
+}
+.carousel-layout .grid2 .grid-item2{
+    width: 85%;
+}
+.carousel-layout .grid2 .grid-item2 img{
+    width: 100%;
+    border-radius: 20px;
+}
+.carousel-layout .grid2 button{
+    padding: 10px 40px;
+    transition: 0.6s;
+    border: none;
+    margin-top: 50px;
+    border: var(--main-red) 2px solid;
+}
+.carousel-layout .grid2 button a{
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.6s;
+    color: var(--main-red);
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+}
+.carousel-layout .grid2 button:hover{
+    background: var(--main-red);
+}
+.carousel-layout .grid2 button:hover > a{
+    color: white;
+}
+.carousel-layout .grid{
+    width: 20%;
+}
+.carousel-layout .grid .grid-item img{
+    width: 75%;
+    border-radius: 10px;
+}
+.carousel-layout .grid .grid-item p{
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.6s;
+}
+.carousel-layout .grid .grid-item:nth-child(2){
+    margin-top: 15px;
+}
+.carousel-layout .grid .grid-item:hover p{
+    color: var(--main-red);
+} */
+.title-2{
+    width: max-content;
+    margin-top: 50px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid black;   
+}
+.entertainment{
+    margin: 30px 0px;
+}
+.entertainment .row .column h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    transition: 0.6s;
+}
+.entertainment .row .column:hover > h1{
+    color: var(--main-red);
+}
+.entertainment .row .column .img-div img{
+    border-radius: 10px;
+}
+.footer{
+    background-color: var(--main-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding: 20px 20px;
+}
+.footer .options{
+    display: flex;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+.footer .options p{
+    margin: 0px 10px;
+}
+.footer h1{
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}

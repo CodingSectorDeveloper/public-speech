@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+<style>
+
+.d {
+	float: left;
+	overflow: hidden;
+}
+.d .d-btn {
+	font-size: 16px;
+	border: none;
+	outline: none;
+	background: inherit;
+	text-transform: uppercase;
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.d-content {
+    display: none;
+    padding-top: 50px;
+    position: absolute;
+	background: #f9f9f9;
+	width: 100%;
+	left: 0;
+    transition: 0.6s;
+    padding-bottom: 50px;
+    z-index: 10;
+}
+.d:hover .d-content {
+    display: block;
+}
+.row{
+    margin-left: 20px;
+    display: flex;
+    animation: linear 0.6s fade;
+    transition: ease-in-out;
+}
+.column{
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    width: 22vw;
+}
+.column .img-div{
+    width: 22vw;
+    position: relative;
+    height: 35vh;
+}
+.column .img-div img{
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    height: 100%;
+}
+.column .news-title{
+    font-family: 'Mate SC', serif;
+    font-weight: 300;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: 0.6s;
+}
+.row .column .news-details{
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: 0.6s;
+    font-weight: 400;
+}
+.row .column:hover .news-details{
+    color: var(--main-red);
+}
+.row .column:hover .news-title{
+    color: var(--main-red);
+}
+.row .column .img-div p{
+    font-family: 'Poppins', sans-serif;
+    background-color: #4d4d8b;
+    border-radius: 5px;
+    font-weight: 300;
+    padding: 5px 10px;
+    font-size: 12px;
+    width: max-content;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.title{
+    margin: 30px;
+    position: relative;
+    font-size: 25px;
+    transform: translate(-50% -50%);
+    color: black;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.indian-news{
+    display: flex;
+}
+.indian-news .main-news{
+    position: relative;
+    width: max-content;
+    width: 40%;
+    height: max-content;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+.indian-news .main-news img{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+}
+.main-news::after {
+    content:'';
+    position:absolute;
+    left:0; 
+    transition: 0.6s;
+    top:0px;
+    width:100%;
+    height:100%;
+    background: linear-gradient(rgba(0,0,0,0.300) , rgba(0,0,0,0.300));
+    display:inline-block;
+}
+.indian-news .main-news p{
+    position: absolute;
+    bottom: 20px;
+    z-index: 999999;
+    left: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+.indian-news .main-news .icons{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: rgb(255, 255, 255);
+    z-index: 100000;
+    margin-right: 10px;
+    display: none;
+    font-size: 20px;
+    animation: fade linear 0.6s;
+}
+.indian-news .main-news .icons i{
+    margin: 10px 5px;
+    transition: 0.6s;
+}
+.indian-news .main-news .icons i:hover{
+    color: rgb(255, 219, 119);
+    cursor: pointer;
+}
+.indian-news .main-news:hover > .icons{
+    display: block;
+}
+.indian-news .main-news:hover > p{
+    color: rgb(255, 219, 119);
+    transition: 0.6s;
+}
+.indian-news .collection .collection-item{
+    position: relative;
+    height: 100px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    width: 15vw;
+    transition: 0.6s;
+    border-bottom: 1px solid black;
+}
+.indian-news .collection .collection-item h1{
+    font-size: 13px;
+    transition: 0.6s;
+    font-family: 'Poppins', sans-serif;
+}
+.indian-news .collection .collection-item .icons{
+    padding-bottom: 10px;
+    position: absolute;
+    display: flex;
+    bottom: 0px;
+    right: 0px;
+}
+.indian-news .collection .collection-item .icons i{
+    display: none;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.indian-news .collection {
+    margin: 0px 30px;
+}
+.indian-news .collection .collection-item:hover{
+    border-bottom: 1px var(--main-red) solid;
+}
+.indian-news .collection .collection-item:hover > h1{
+    color: var(--main-red);
+}
+.indian-news .collection .collection-item:hover > .icons i{
+    animation: fade linear 0.6s;
+    color: var(--main-red);
+    display: block;
+}
+.sidebar{
+    width: 17%;
+    position: relative;
+    background-color: #ddddff;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid  #c1c1fa;
+}
+.sidebar .title h1{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin: 10px 0px;
+}
+.sidebar .title p{
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.sidebar button{
+    background: rgb(255, 70, 70);
+    width: 80%;
+    position: absolute;
+    border: none;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    padding: 15px 0px;
+
+}
+.sidebar button a{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+.sidebar .features{
+    list-style: none;
+    margin: 0px 20px;
+}
+.sidebar .features li{
+    margin: 20px 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: bolder;
+}
+.sidebar .features li i{
+    margin-right: 5px;
+}
+.title-2{
+    width: max-content;
+    margin-top: 50px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid black;   
+}
+.entertainment{
+    margin: 30px 0px;
+}
+.entertainment .row .column h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    transition: 0.6s;
+}
+.entertainment .row .column:hover > h1{
+    color: var(--main-red);
+}
+.entertainment .row .column .img-div img{
+    border-radius: 10px;
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+    .column{
+        width: 86vw;
+        margin-left: 10px;
+    }
+    .column .img-div{
+        width: 86vw;
+    }
+}
+</style>
+{% endblock head %}
+
+    
+{% block body %}
+
+    <h1 class="title title-2">LATEST NEWS</h1>
+
+    <div class="entertainment">
+    
+        <div class="row" style="flex-wrap: wrap;">
+            {% for news in news %}
+            <div class="column" onclick="window.location.href='/news_details/{{news.id}}'">
+                <div class="img-div">
+                    <img src="{{news.thumbnail.url}}" alt="">
+                </div>
+                <h1 class="news-title">{{news.title}}</h1>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+
+    {% endblock body %}
+
+</body>
+</html>

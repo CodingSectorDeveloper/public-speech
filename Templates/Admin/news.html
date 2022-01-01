@@ -1,0 +1,45 @@
+{% extends "admin_base.html" %}
+
+{% block title %} News {% endblock %}
+
+{% block head %}
+
+    <style>
+        .space-between{
+            margin: 15px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plus-icon{
+            font-size: 20px;
+            color: white;
+            background-color: rgb(79,68,224);
+            padding: 10px;
+            border-radius: 100px;
+        }
+        .container-div{
+            border: 1px solid rgba(0,0,0,0.600);
+            box-shadow: none;
+        }
+    </style>
+
+{% endblock head %}
+
+{% block body %}
+<div class="main__container">
+    <div class="space-between">
+        <h1>News</h1>
+    </div>
+    <div class="container-div" style="margin-top: 20px;">
+        {% for i in news %}
+        <div class="space-between" onclick="window.location.href='/admin_dashboard/news_details/{{i.id}}'">
+            <p>{{forloop.counter}}. <b>{{i.title}}</b> - {{i.uploaded_on}}</p>
+            <a href="/admin_dashboard/news_delete/{{i.id}}"><i class="fas fa-trash-alt" style="color: red;"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock body %}
